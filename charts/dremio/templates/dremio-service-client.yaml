@@ -22,6 +22,9 @@ spec:
   - port: {{ .Values.coordinator.web.port | default 9047 }}
     targetPort: 9047
     name: web
+    {{- if eq (.Values.serviceType | default "NodePort") "NodePort" }}  
+    nodePort: {{ .Values.coordinator.web.nodePort }}
+    {{- end }}
   selector:
     app: dremio-coordinator
   type: {{ .Values.serviceType | default "NodePort" }}

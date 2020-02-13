@@ -16,6 +16,7 @@ coordinator:
   count: 0
   web:
     port: 9047
+    nodePort: 30947
   client:
     port: 31010
   volumeSize: 100Gi
